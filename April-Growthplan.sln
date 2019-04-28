@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "April-Growthplan", "April-Growthplan\April-Growthplan.csproj", "{38623411-9F03-4839-A9CD-5821736D107B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisChaeGrowthplan", "RedisChaeGrowthplan\RedisChaeGrowthplan.csproj", "{BDC2386A-27B7-4E08-BFEB-828134CE2B2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisChaeGrowthplan", "RedisChaeGrowthplan\RedisChaeGrowthplan.csproj", "{BDC2386A-27B7-4E08-BFEB-828134CE2B2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{90CBE54A-DE07-4251-88BE-48C8C00CE6E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BDC2386A-27B7-4E08-BFEB-828134CE2B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDC2386A-27B7-4E08-BFEB-828134CE2B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDC2386A-27B7-4E08-BFEB-828134CE2B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90CBE54A-DE07-4251-88BE-48C8C00CE6E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90CBE54A-DE07-4251-88BE-48C8C00CE6E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90CBE54A-DE07-4251-88BE-48C8C00CE6E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90CBE54A-DE07-4251-88BE-48C8C00CE6E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

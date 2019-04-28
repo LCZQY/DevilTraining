@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RedisChaeGrowthplan.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace RedisChaeGrowthplan.Models
     /// <summary>
     /// 用户表
     /// </summary>
+    
+    [MyCache]
     public class Users
     {
         /// <summary>
