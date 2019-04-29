@@ -13,12 +13,11 @@ using System.Threading;
 namespace RedisChaeGrowthplan.Common
 {
 
-    [AttributeUsage(AttributeTargets.All,AttributeUsageAttribute = true)]
+    [AttributeUsage(AttributeTargets.All, AttributeUsageAttribute = true)]
     public class RedisCacheAttribute : Attribute
     {
 
         private readonly string _name;
-
         public string Name { get { return _name; } }
 
 
