@@ -17,7 +17,6 @@ namespace RedisChaeGrowthplan.Controllers
         {
             _DbContext = aprilDbContext;
             _memoryCache = memoryCache;
-
         }
 
         public IActionResult Index()

@@ -23,7 +23,6 @@ namespace TestConsole.Attributes
             Console.WriteLine($"主键：{t.ID}");
             Console.WriteLine($"姓名：{t.Name}");
 
-
             Console.WriteLine("反射得到特性中得值>>>>>>>>>>>>>>");
             Type type = t.GetType();
             foreach (var item in type.GetProperties()) //找到全部属性并遍历
