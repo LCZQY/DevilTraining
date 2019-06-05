@@ -23,6 +23,11 @@ namespace RedisChaeGrowthplan.Models
             {
                 b.Property<bool>("IsDeleted").HasColumnType("bit");
                 b.Property<bool>("Sex").HasColumnType("bit");
+                //b.Property<bool>("EmailConfirmed").HasColumnType("bit");
+                ////b.Property<bool>("LockoutEnabled").HasColumnType("bit");
+                //b.Property<bool>("PhoneNumberConfirmed").HasColumnType("bit");
+                //b.Property<bool>("TwoFactorEnabled").HasColumnType("bit");
+                //b.Property<bool>("IsDisplay").HasColumnType("bit");
                 b.ToTable("identityuser");
             });
 

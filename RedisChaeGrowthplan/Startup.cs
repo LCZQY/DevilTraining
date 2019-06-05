@@ -2,9 +2,13 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RedisChaeGrowthplan.Controllers;
+using RedisChaeGrowthplan.Filters;
+using RedisChaeGrowthplan.Models;
+using RedisChaeGrowthplan.Stores;
 
 namespace RedisChaeGrowthplan
 {
@@ -22,22 +26,16 @@ namespace RedisChaeGrowthplan
         {
 
             services.AddMemoryCache();
-
-            //开启Redis集群模式
-            // services.AddSingleton<IDistributedCache>(new Microsoft.Extensions.Caching.Redis.CSRedisCache(RedisHelper.Instance));
             ///注入实例化 
             //services.AddSingleton(typeof(IRedisCache), new RedisCache(new Microsoft.Extensions.Caching.Redis.RedisCacheOptions
             //{
             //    Configuration = Configuration.GetSection("Cache:RedisConnectionString").Value,
             //    InstanceName = Configuration.GetSection("Cache:InstanceName").Value
             //}));
-
-
-            //services.AddDbContext<AprilDbContext>(option  => {
-            //    option.UseMySQL(Configuration.GetSection("ConnectionStrings:MysqlConnection").Value);
-            //});
-
-
+            services.AddDbContext<AprilDbContext>(option =>
+            {
+                option.UseMySQL(Configuration.GetSection("ConnectionStrings:MysqlConnection").Value);
+            });
 
             services.AddScoped<HomeController>();
             services.AddScoped<LoginController>();
@@ -48,8 +46,10 @@ namespace RedisChaeGrowthplan
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //开启全局过滤器
+            services.AddMvc(options => {
+               // options.Filters.Add(new MySampleActionFilter());
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,7 +73,7 @@ namespace RedisChaeGrowthplan
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Login}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=About}/{id?}");
             });
         }
     }

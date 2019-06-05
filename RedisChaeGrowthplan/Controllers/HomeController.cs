@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using RedisChaeGrowthplan.Attributes;
+using RedisChaeGrowthplan.Filters;
 using RedisChaeGrowthplan.Models;
 
 namespace RedisChaeGrowthplan.Controllers
@@ -13,6 +15,8 @@ namespace RedisChaeGrowthplan.Controllers
     {
         private readonly AprilDbContext _DbContext;
         private readonly IMemoryCache _memoryCache;
+
+
         public HomeController(AprilDbContext aprilDbContext, IMemoryCache memoryCache)
         {
             _DbContext = aprilDbContext;
@@ -21,16 +25,34 @@ namespace RedisChaeGrowthplan.Controllers
 
         public IActionResult Index()
         {
-            var list = _DbContext.Users.FirstOrDefault(u=>u.TrueName !=null).UserName;
+
+            var list = _DbContext.Users.FirstOrDefault(u => u.TrueName != null).UserName;
             ViewBag.name = list;
             return View();
         }
 
+
+       
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
+            ViewData["Message"] = "缓存来到测试场景";          
             return View();
+        }
+
+
+        [HttpPost]
+        [MySampleActionFilter]
+        public JsonResult post(Users users)
+        {           
+            var list = _DbContext.Users.ToList();
+            return new JsonResult(list);
+        }
+
+        [CacheMethod("get")]        
+        [MySampleActionFilter]
+        public JsonResult get(string ok)
+        {       
+            return new JsonResult(ok);
         }
 
         public IActionResult Contact()

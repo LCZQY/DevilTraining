@@ -11,7 +11,7 @@ namespace RedisChaeGrowthplan.Models
     /// <summary>
     /// 用户表
     /// </summary>
-    
+
     [MyCache]
     public class Users
     {
@@ -60,11 +60,42 @@ namespace RedisChaeGrowthplan.Models
 
         [MaxLength(127)]
         public string CreateUser { get; set; }
-        public DateTime CreateTime { get; set; }
+
+        public DateTime? CreateTime { get; set; }
 
         [MaxLength(127)]
         public string DeleteUser { get; set; }
-        public DateTime DeleteTime { get; set; }
+        public DateTime? DeleteTime { get; set; }
 
+        public string Avatar { get; set; }
+        public string FilialeId { get; set; }
+
+        public string WXOpenId { get; set; }
+
+        //public int? AccessFailedCount { get; set; }
+        public string ConcurrencyStamp { get; set; }
+        public string Discriminator { get; set; }
+        public string Email { get; set; }
+        //public bool EmailConfirmed { get; set; }
+
+        //public bool? LockoutEnabled { get; set; }
+        //public DateTime? LockoutEnd { get; set; }
+        public string NormalizedEmail { get; set; }
+        public string NormalizedUserName { get; set; }
+        //public bool? PhoneNumberConfirmed { get; set; }
+        public string SecurityStamp { get; set; }
+        //public bool? TwoFactorEnabled { get; set; }
+
+        public string Position { get; set; }
+
+
+
+        public string ParentId { get; set; }
+        //public bool IsDisplay { get; set; }
+        public string QQ { get; set; }
+        public string Wechat { get; set; }
+        public string JobNumber { get; set; }
+        public string PinYin { get; set; }
     }
+
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestConsole.Common
+namespace RedisChaeGrowthplan.Common
 {
     public static class RedisHelp
     {
@@ -47,7 +47,6 @@ namespace TestConsole.Common
         }
 
         private readonly static object locks = new object();
-
 
 
         /// <summary>

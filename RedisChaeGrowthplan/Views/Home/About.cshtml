@@ -3,5 +3,13 @@
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
-
-<p>Use this area to provide additional information.</p>
+<form asp-controller="home" asp-action="post" method="post">
+    <input name="id" value="@Guid.NewGuid().ToString()" disabled /><br />
+    <span>姓名:</span><input name="TrueName" /><br />
+    <span>用户名:</span>  <input name="UserName" /><br />
+    <span>密码:</span><input name="PasswordHash" /><br />
+    <span>号码:</span><input name="PhoneNumber" /><br />
+    <span>创建人:</span><input name="CreateUser" /><br />
+    <button class="btn-default">Post请求</button>
+</form>
+<p>测试场景: 使用特性标记被缓存得方法数据!!! .</p>
